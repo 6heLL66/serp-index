@@ -1,4 +1,6 @@
-import { IndexToggleType } from './SearchIndexTable.types'
+import { SearchIndex } from '../../api'
+import { getSplitedLanguages } from '../../services/helpers/getSplitedLanguages'
+import { IndexStatus, IndexToggleType } from './SearchIndexTable.types'
 
 export const getIndexValue = (type: IndexToggleType) => {
   switch (type) {
@@ -11,4 +13,27 @@ export const getIndexValue = (type: IndexToggleType) => {
     default:
       return undefined
   }
+}
+
+export const getRowStatus = (row: SearchIndex) => {
+  const { indexedLanguages, unindexedLanguages, expiredIndexedLanguages } =
+    getSplitedLanguages(row.entries || [])
+
+  if (expiredIndexedLanguages.length === row.entries?.length) {
+    return IndexStatus.FullyExpired
+  }
+
+  if (indexedLanguages.length === row.entries?.length) {
+    return IndexStatus.FullyIndexed
+  }
+
+  if (unindexedLanguages.length === row.entries?.length) {
+    return IndexStatus.Unindexed
+  }
+
+  if (expiredIndexedLanguages.length === 0) {
+    return IndexStatus.PartialIndexed
+  }
+
+  return IndexStatus.PartialExpired
 }

@@ -1,0 +1,44 @@
+.unindexed {
+  background: #d1cfcf;
+  cursor: pointer;
+}
+
+.unindexed:hover {
+  background: #d1cfcf !important;
+}
+
+.partial-indexed {
+  background: #8bc34a;
+  cursor: pointer;
+}
+
+.partial-indexed:hover {
+  background: #8bc34a !important;
+}
+
+.fully-indexed {
+  background: #388e3c;
+  cursor: pointer;
+}
+
+.fully-indexed:hover {
+  background: #388e3c !important;
+}
+
+.partial-expired {
+  background: #ca5f5f;
+  cursor: pointer;
+}
+
+.partial-expired:hover {
+  background: #ca5f5f !important;
+}
+
+.fully-expired {
+  background: #d14949;
+  cursor: pointer;
+}
+
+.fully-expired:hover {
+  background: #d14949 !important;
+}

@@ -14,3 +14,11 @@ export enum IndexToggleType {
   Fully = 'Fully',
   NotFully = 'NotFully',
 }
+
+export enum IndexStatus {
+  Unindexed = 'unindexed',
+  PartialIndexed = 'partial-indexed',
+  FullyIndexed = 'fully-indexed',
+  PartialExpired = 'partial-expired',
+  FullyExpired = 'fully-expired',
+}

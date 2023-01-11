@@ -9,11 +9,12 @@ import { getDaysUntilExpire } from '../../services/helpers/getDaysUntilExpire'
 import { SearchIndexModal } from '../SearchIndexModal'
 import { getSplitedLanguages } from '../../services/helpers/getSplitedLanguages'
 import { IndexToggleType } from './SearchIndexTable.types'
-import { getIndexValue } from './SearchIndexTable.helpers'
+import { getIndexValue, getRowStatus } from './SearchIndexTable.helpers'
 import { CreateIndexDialog } from '../CreateIndexDialog'
 import { FiltersDialog } from '../FIltersDialog/FIltersDIalog.component'
 import { getFilterOptions } from '../FIltersDialog/FiltersDialog.helpers'
 import { FilterOption, Filters } from '../FIltersDialog/FiltersDialog.types'
+import './SearchIndexTable.style.css'
 
 const columns: GridColDef[] = [
   {
@@ -157,6 +158,7 @@ export const SearchIndexTable: React.FC = () => {
           setModalData(params.row)
         }}
         onPageChange={(newPage: number) => setPage(newPage)}
+        getRowClassName={params => getRowStatus(params.row)}
         pageSize={pageSize}
         rowsPerPageOptions={[5, 10, 20]}
         onPageSizeChange={(newPageSize: number) => setPageSize(newPageSize)}
