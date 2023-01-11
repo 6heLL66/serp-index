@@ -15,6 +15,7 @@ import { useRequest } from '../../services/hooks/useRequest'
 interface CreateIndexDialogProps {
   open: boolean
   handleClose: () => void
+  onCreateSuccess: () => void
 }
 
 const CreateIndexSchema = Yup.object().shape({
@@ -26,6 +27,7 @@ const CreateIndexSchema = Yup.object().shape({
 export const CreateIndexDialog: React.FC<CreateIndexDialogProps> = ({
   open,
   handleClose,
+  onCreateSuccess,
 }) => {
   const formik = useFormik<CreateSearchIndexRequest>({
     initialValues: {
@@ -36,6 +38,7 @@ export const CreateIndexDialog: React.FC<CreateIndexDialogProps> = ({
     validationSchema: CreateIndexSchema,
     onSubmit: (_: CreateSearchIndexRequest, { resetForm }) => {
       handleClose()
+      onCreateSuccess()
       resetForm()
     },
   })

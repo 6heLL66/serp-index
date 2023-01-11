@@ -19,7 +19,7 @@ const columns: GridColDef[] = [
     valueGetter: params => new Date(params.value).toLocaleString(),
   },
   { field: 'language', headerName: 'Language', width: 85 },
-  { field: 'url', headerName: 'Url', width: 282 },
+  { field: 'url', headerName: 'Url', width: 260 },
   {
     field: 'title',
     headerName: 'Title',
@@ -54,7 +54,7 @@ export const SearchIndexModal: React.FC<SearchIndexModalProps> = ({
         >
           {data?.title}
         </Typography>
-        <Box>
+        <Box sx={{ height: 800, overflowY: 'scroll' }}>
           <DataGrid
             columns={columns}
             rows={data?.entries || []}

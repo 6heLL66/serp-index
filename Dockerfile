@@ -1,7 +1,7 @@
 FROM node:18
 WORKDIR /app
 COPY . .
-RUN yarn 
+RUN yarn install --frozen-lockfile 
 RUN yarn build
-EXPOSE 3000
+EXPOSE 80
 CMD [ "npx", "serve", "build" ]
