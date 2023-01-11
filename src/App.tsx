@@ -1,26 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container } from '@mui/system'
+import { ToastContainer } from 'react-toastify'
+import { OpenAPI } from './api'
+import { SearchIndexTable } from './components/SearchIndexTable'
+import 'react-toastify/dist/ReactToastify.css'
+
+OpenAPI.BASE = 'https://serpindex-demo.svc.violetvault.com'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <ToastContainer />
+      <Container sx={{ pt: '32px' }}>
+        <SearchIndexTable />
+      </Container>
+    </>
+  )
 }
 
-export default App;
+export default App
